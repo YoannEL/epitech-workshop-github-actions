@@ -1,0 +1,27 @@
+on : workflow_dispatch
+  issues :
+    types :
+      - opened
+      - edited
+      - closed
+  pull_request :
+    types :
+      - ready_to_review
+  gollum :
+    types :
+      - opened
+      - edited
+      - deleted
+  schedule :
+    - cron : '* * 1 * *'
+    
+jobs :
+  test_schedule :
+    run-on : fedora-33
+    steps :
+      run :
+        echo Hello, world ! Today is 
+        date
+    
+  
+      
